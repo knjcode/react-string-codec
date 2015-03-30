@@ -1,0 +1,25 @@
+{
+  "name": "react-string-codec",
+  "version": "0.0.0",
+  "description": "string-codec web interface with react",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify app.jsx -t babelify --outfile bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knjcode/react-string-codec"
+  },
+  "author": "knjcode <knjcode@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knjcode/react-string-codec/issues"
+  },
+  "homepage": "https://github.com/knjcode/react-string-codec",
+  "devDependencies": {
+    "babelify": "^5.0.4",
+    "browserify": "^9.0.3",
+    "react": "^0.13.1",
+    "string-codec": "0.0.5"
+  }
+}
