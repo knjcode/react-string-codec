@@ -1,19 +1,21 @@
+'use strict';
+
 import React from 'react';
 import {encoder, decoder, ENC_ALGOS, DEC_ALGOS} from 'string-codec';
-ENC_ALGOS = ENC_ALGOS.concat(['md5','sha1','sha224','sha256','sha384','sha512','rmd160']);
+ENC_ALGOS = ENC_ALGOS.concat(['md5','rmd160','sha1','sha224','sha256','sha384','sha512']);
 
 var Codec = React.createClass({
   render() {
     return (
       <ul style={style.list}>
-        {this.props.algos.map((algo => {
+        {this.props.algos.map( algo => {
           try {
             var output = this.props.func(this.props.str,algo)
             return <li key={algo}><strong>{algo}:</strong> {output ? output : ''}</li>
           } catch(e) {
             return <li key={algo}><strong>{algo}:</strong> {e.toString()}</li>
           }
-        }))}
+        })}
       </ul>
     );
   }
@@ -29,23 +31,20 @@ var StringCodecWebIF = React.createClass({
   render() {
     return (
       <div>
-        <div>The string-codec web inerface with react</div>
+        <div>The string-codec web inerface with react, browserify, and babelify.</div>
         <input
-          type='text'
-          style={style.text}
-          placeholder='enter string you want to encode'
-          onChange={this.handleChange}
-          autoFocus={true}
-          value={this.state.value} />
+          type='text' style={style.text} autoFocus={true}
+          placeholder='enter text you want to encode or decode'
+          onChange={this.handleChange} value={this.state.value} />
         <div>
-        <div style={style.float}>
-          <div>encode text</div>
-          <Codec algos={ENC_ALGOS} func={encoder} str={this.state.value} />
-        </div>
-        <div style={style.float}>
-          <div>decode text</div>
-          <Codec algos={DEC_ALGOS} func={decoder} str={this.state.value} />
-        </div>
+          <div style={style.float}>
+            <div style={style.head}>encode</div>
+            <Codec algos={ENC_ALGOS} func={encoder} str={this.state.value} />
+          </div>
+          <div style={style.float}>
+            <div style={style.head}>decode</div>
+            <Codec algos={DEC_ALGOS} func={decoder} str={this.state.value} />
+          </div>
         </div>
       </div>
     );
@@ -59,12 +58,16 @@ var style = {
   },
   text: {
     fontSize: '80%',
-    width: 300
+    width: 600
+  },
+  head: {
+    textDecoration: 'underline'
   },
   list: {
-    fontSize: '80%',
     margin: 0,
-    padding: 0
+    padding: 0,
+    fontSize: '80%',
+    listStyleType: 'none'
   }
 };
 
