@@ -20,6 +20,6 @@
     "babelify": "^5.0.4",
     "browserify": "^9.0.3",
     "react": "^0.13.1",
-    "string-codec": "0.0.5"
+    "string-codec": "0.0.6"
   }
 }
