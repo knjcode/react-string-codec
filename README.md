@@ -13,4 +13,4 @@ Then open `index.html` in your browser!
 
 ## live demo
 
-[live demo is here](http://test.guit.net/scwi/) (Notice: downloaded file size is about 1.8MB)
+[live demo is here](http://test.guit.net/scwi/) (Notice: downloaded file size is about 1.0MB)

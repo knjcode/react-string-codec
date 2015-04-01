@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import {encoder, decoder, ENC_ALGOS, DEC_ALGOS} from 'string-codec';
 ENC_ALGOS = ENC_ALGOS.concat(['md5','rmd160','sha1','sha224','sha256','sha384','sha512']);
@@ -10,10 +8,10 @@ var Codec = React.createClass({
       <ul style={style.list}>
         {this.props.algos.map( algo => {
           try {
-            var output = this.props.func(this.props.str,algo)
-            return <li key={algo}><strong>{algo}:</strong> {output ? output : ''}</li>
+            var output = this.props.func(this.props.str,algo);
+            return <li key={algo}><strong>{algo}:</strong> {output ? output : ''}</li>;
           } catch(e) {
-            return <li key={algo}><strong>{algo}:</strong> {e.toString()}</li>
+            return <li key={algo}><strong>{algo}:</strong> {e.toString()}</li>;
           }
         })}
       </ul>
@@ -71,4 +69,4 @@ var style = {
   }
 };
 
-React.render( <StringCodecWebIF />, document.body );
+React.render(<StringCodecWebIF />, document.body);
